@@ -1,8 +1,11 @@
 import { addHours } from "date-fns";
 import { useState } from "react";
 import Modal from "react-modal";
-import DatePicker from 'react-datepicker';
+import DatePicker, {registerLocale} from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import es from 'date-fns/locale/es';
+
+registerLocale('es',es);
 
 const customStyles = {
     content: {
@@ -83,6 +86,9 @@ setFormValues({
               className="form-control"
               onChange={(event) => onDateChanged(event, "start")}
               dateFormat="Pp"
+              showTimeSelect
+              locale="es"
+              timeCaption="Hora"
             />
           </div>
         </div>
@@ -96,6 +102,9 @@ setFormValues({
               className="form-control"
               onChange={(event) => onDateChanged(event, "end")}
               dateFormat="Pp"
+              showTimeSelect
+              locale="es"
+              timeCaption="Hora"
             />
           </div>
         </div>

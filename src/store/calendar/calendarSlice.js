@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 //import { addHours } from 'date-fns';
 
@@ -45,7 +44,7 @@ export const calendarSlice = createSlice({
         },
         onDeleteEvent: ( state ) => {
             if ( state.activeEvent ) {
-                state.events = state.events.filter( event => event.id !== state.activeEvent._id );
+                state.events = state.events.filter( event => event.id !== state.activeEvent.id );
                 state.activeEvent = null;
             }
         },
@@ -54,7 +53,7 @@ export const calendarSlice = createSlice({
             state.isLoadingEvents = false;
             //state.events = payload;
             payload.forEach(event => {
-                const exists = state.events.some( dbEvent => dbEvent.id === event.id );
+                const exists = state.events.some( eventDB => eventDB.id === event.id);
                 if (!exists) {
                     state.events.push (event)
 

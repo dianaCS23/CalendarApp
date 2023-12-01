@@ -6,7 +6,7 @@ import { store } from './store/store';
 export const CalendarApp = () => {
   return (
 <Provider store={ store}>
-<BrowserRouter>
+<BrowserRouter basename="/CalendarApp">
    <AppRouter />
    </BrowserRouter>
 </Provider>
